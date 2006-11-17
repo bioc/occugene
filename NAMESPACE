@@ -1,0 +1,10 @@
+export(checkFormat,
+	delta0,
+	eMult,
+	etDelta,
+	fCumul,
+	fFit,
+	occup2Negenes,
+	unbiasB0,
+	unbiasDelta0,	
+	varMult)

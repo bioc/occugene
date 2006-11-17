@@ -1,0 +1,10 @@
+Package: occugene
+Version: 0.1.0
+Date: 2006-11-07
+Title: Functions for Multinomial Occupancy Distribution
+Author: Oliver Will <oliverrreader@gmail.com>
+Maintainer: Oliver Will <oliverrreader@gmail.com>
+Depends: R (>= 2.0.0)
+Description: Statistical tools for building random mutagenesis libraries for prokaryotes. The package has functions for handling the occupancy distribution for a multinomial and for estimating the number of essential genes in random transposon mutagenesis libraries.
+License: GPL version 2.0 or newer
+biocViews: Statistics,Annotation,Pathways

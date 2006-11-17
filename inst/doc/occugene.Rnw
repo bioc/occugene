@@ -1,0 +1,77 @@
+%\VignetteIndexEntry{occugene}
+%\VignetteKeyword{libraries}
+
+\documentclass{article}
+
+\title{Estimating the Number of Essential Genes using Occugene}
+\author{Oliver Will}
+
+\begin{document}
+\maketitle
+
+This vignette contains code from a chapter of the forthcoming book, A Osterman and S Gerdes. \emph{Gene Essentiality: Protocols and Bioinformatics}. Humana Press. This package has similar functionality as the R package \texttt{negenes} written by Karl Broman.
+
+Biologists have built large random mutagenesis libraries for prokaryotes. For a description of the biology, see MA Jacobs \emph(et al). (2003) Comprehensive transposon mutant library of \emph{Pseudomonas aeruginosa}. \emph{Proc Natl Acad Sci USA}. \textbf{100}:14339--14344. The \texttt{occugene} package provides statistical tools to help build random libraries.
+
+We model the number of insertions per clone as a Multinomial$(n,p_1,\ldots,p_k)$ random vector. The number of knockouts in the library follows the occupancy distribution of the multinomial random variable. We compute the expected number of genes hit if there were no essential genes.
+
+<<momments>>=
+library("occugene")
+n <- 60
+p <- c(seq(10,1,-1),seq(10,1,-1),18)/124
+p <- p/sum(p)
+eMult(n,p)
+varMult(n,p)
+@
+
+We approximate the moments of the occupancy distribution using Monte Carlo integration.
+
+<<approx momments>>=
+eMult(n,p,iter=100,seed=4)
+varMult(n,p,iter=100,seed=4)
+@
+
+We load an example hit table and experimental results to analyze. The format of the hit table is different than what is used in \texttt{negenes} because we wish to the track the order of insert locations.
+
+<<load>>=
+data(sampleAnnotation)
+data(sampleInsertions)
+print(sampleAnnotation)
+print(sampleInsertions)
+a.data <- sampleAnnotation
+experiment <- sampleInsertions
+@
+
+We estimate the number of genes that will be knocked out in the next 10 clones using the Efron and Thisted estimator.
+
+<<et>>=
+orf <- cbind(a.data$first,a.data$last)
+clone <- experiment$position
+etDelta(10,orf,clone)
+@
+
+We use the Will and Jacobs' bootstrap to estimate the number of knockouts made in the next 10 clones.
+
+<<wj next>>=
+orf <- cbind(a.data$first,a.data$last)
+clone <- experiment$position
+fFit(orf,clone,FALSE)
+unbiasDelta0(10,orf,clone,iter=10,seed=4,alpha=0.05,TR=F)
+@ 
+
+We estimate the number of essential genes using the Will and Jacobs' bootstrap.
+
+<<number essential will>>=
+unbiasB0(orf,clone,iter=10,seed=4,alpha=0.05,TR=F)
+@
+
+Finally, we convert \texttt{occugene}'s data format into the format for \texttt{negenes}. 
+
+<<conversion>>=
+newOrf <- occup2Negenes(orf,clone)
+print(newOrf)
+@
+
+We outlined the basic features of the \texttt{occugene} package in this Sweave document. 
+
+\end{document}
