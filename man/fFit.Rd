@@ -1,8 +1,8 @@
 \name{fFit}
 \alias{fFit}
-\title{Parametric Fit for the Cummulative Occupancy Distribution}
+\title{Parametric Fit for the Cumulative Occupancy Distribution}
 \description{
-Parameterizes the cummulative occupancy distribution.
+Parameterizes the cumulative occupancy distribution.
 }
 \usage{
 fFit(anno,clone,TR=TRUE,b0=0,b1=0,b2=.0)

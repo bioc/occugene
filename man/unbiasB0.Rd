@@ -1,8 +1,8 @@
 \name{unbiasB0}
 \alias{unbiasB0}
-\title{Unbiased Estimator of the Number of Nonessential ORFs}
+\title{Unbiased Estimator of the Number of Non-essential ORFs}
 \description{
-Unbiased piont estimate and confidence intervals for the number of nonessential 
+Unbiased point estimate and confidence intervals for the number of non-essential 
 ORFs.
 }
 \usage{
@@ -17,9 +17,9 @@ unbiasB0(anno,clone,iter=1000,seed=NULL,alpha=0.05,TR=TRUE)
 \item{TR}{Report a trace}
 }
 \details{
-Fits a parametric function to the cummulative occupancy distribution. Uses
+Fits a parametric function to the cumulative occupancy distribution. Uses
 a parametric bootstrap to correct for bias and find confidence intervals for 
-the number of nonessential ORFs.
+the number of non-essential ORFs.
 }
 \value{
 \item{b0}{Unbiased point estimate}

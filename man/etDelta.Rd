@@ -22,7 +22,7 @@ method outlined by Efron and Thisted.
 }
 \references{See the book chapter O. Will (**) in ** and also Efron, B. and 
 Thisted, R. (1976) Estimating the number of unseen species: How many words did 
-Shakespere know? \emph{Biometrika}. 63, 435Ñ447.}
+Shakespere know? \emph{Biometrika}. 63, 435-447.}
 \author{Oliver Will \email{owill4@yahoo.com}}
 \examples{
 data(sampleAnnotation)

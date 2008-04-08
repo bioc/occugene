@@ -2,7 +2,7 @@
 \alias{varMult}
 \title{Variance of the Occupancy Distribution}
 \description{
-Returns the variance of the occupany distribution based on a 
+Returns the variance of the occupancy distribution based on a 
 multinomial distribution.
 }
 \usage{
@@ -17,11 +17,11 @@ varMult(n, p, iter=NULL, seed=NULL, experimental=NULL)
 }
 \details{This functions computes the variance of the occupancy distribution
 for a multinomial. In other words, the expected number of bins with 
-at least one ball. The experimental arguement "oneBall" computes
+at least one ball. The experimental argument "oneBall" computes
 variance of bins with exactly one ball and the experimental argument
 "nextTo" computes the variance of bins with one ball next to a bin
 with zero balls. Consider any functionality through the experimental 
-arguement untested.}
+argument untested.}
 \value{Returns a numeric}
 \references{
 See the book chapter O. Will (**) in ** for specific details about

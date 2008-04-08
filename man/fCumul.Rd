@@ -1,8 +1,8 @@
 \name{fCumul}
 \alias{fCumul}
-\title{Parametric Function for the Cummulative Occupancy Distristibution}
+\title{Parametric Function for the Cumulative Occupancy Distribution}
 \description{
-Returns values for parametrized cummulative occupancy distributions.}
+Returns values for parameterized cumulative occupancy distributions.
 }
 \usage{
 fCumul(x,b0,b1,b2)
@@ -14,7 +14,7 @@ fCumul(x,b0,b1,b2)
 \item{b2}{Parameter b2}
 }
 \details{
-Function fitted to the cummulative occupancy distribution for a multnomial
+Function fitted to the cumulative occupancy distribution for a multinomial
 distribution. Exponential model := b0-b1*exp(-b2*x).
 }
 \value{Returns a numeric}

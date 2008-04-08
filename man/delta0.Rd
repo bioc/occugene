@@ -13,7 +13,7 @@ delta0(d,anno,clone)
 \item{clone}{Vector of insertions}
 }
 \details{
-Use the parametric form of the cummulative occupancy distribution to estimate
+Use the parametric form of the cumulative occupancy distribution to estimate
 the number of new ORF knockouts in the next d clones.
 }
 \value{
